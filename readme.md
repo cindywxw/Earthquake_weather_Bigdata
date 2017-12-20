@@ -17,9 +17,9 @@ getStations (java program)
 java -cp uber-apiearthquake-0.0.1-SNAPSHOT.jar edu.uchicago.cindywen.apiearthquake.LatestEarthquakes
 add jar hdfs:///pathto/uber-weatheringest-0.0.1-SNAPSHOT.jar;
 ```  
-!run /pathto/hive_earthquake_cluster.hql
-!run /pathto/orcweather_cluster.hql;
-!run /pathto/write_to_hbase2.hql;
+!run /pathto/hive_earthquake_cluster.hql;  
+!run /pathto/orcweather_cluster.hql;  
+!run /pathto/write_to_hbase2.hql;  
 
 ```shell
 ./kafka-topics.sh --create --zookeeper 10.0.0.3:2181 --replication-factor 1 --partitions 1 --topic earthquake
@@ -29,11 +29,11 @@ spark-submit --master local[2] --class StreamData uber-earthquakestream-0.0.1-SN
 ```
 
 hbase:
-create 'xw_earthquakeweather_hb', 'eq'
-create 'xw_earthquakeweather_speed', 'eq'
-create 'xw_earthquakeweather_bk', 'eq'
-create 'xw_earthquakeweather_by_country', 'cnty'
-create 'xw_earthquakeweather_by_country_speed', 'cnty'
+create 'xw_earthquakeweather_hb', 'eq'  
+create 'xw_earthquakeweather_speed', 'eq'  
+create 'xw_earthquakeweather_bk', 'eq'  
+create 'xw_earthquakeweather_by_country', 'cnty'  
+create 'xw_earthquakeweather_by_country_speed', 'cnty'  
 
 
  
@@ -76,7 +76,7 @@ For geographical factors, the 10 countries(areas) that suffer the earthquakes wi
 country|count|depth|mag|temp|fog|rain|snow|hail|thunder|tornado|clear
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
 US|4|10|5.55|30.05|0.5|0.5|0.75|0|0|0|0.25
-FG|1|10|5|79.5|1|1|0|0|0|0|0
+FG|1|10|5|79.5|0|1|0|0|0|0|0
 IC|4|10|4.95|79.675|0|0|0|0|0|0|1
 ZR|1|10|4.9|80.6|0|0|0|0|0|0|1
 HE|86|10.153|4.83|64.781|0.116|0.419|0|0|0|0|0.547
