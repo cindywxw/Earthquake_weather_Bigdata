@@ -1,0 +1,3 @@
+/home/mpcs53013/eclipse-workspace/weatheringest/src/main/java/edu/uchicago/cindywen/weatheringest/WeatherSummaryProcessor.java
+/home/mpcs53013/eclipse-workspace/weatheringest/target/generated-sources/thrift/edu/uchicago/mpcs53013/weatherSummary/WeatherSummary.java
+/home/mpcs53013/eclipse-workspace/weatheringest/src/main/java/edu/uchicago/cindywen/weatheringest/SerializeWeatherSummary.java

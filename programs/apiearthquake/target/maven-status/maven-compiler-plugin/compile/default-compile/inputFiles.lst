@@ -1,0 +1,5 @@
+/home/mpcs53013/eclipse-workspace/apiearthquake/src/main/java/edu/uchicago/cindywen/apiearthquake/EarthquakeResponse.java
+/home/mpcs53013/eclipse-workspace/apiearthquake/src/main/java/edu/uchicago/cindywen/apiearthquake/WeatherResponse.java
+/home/mpcs53013/eclipse-workspace/apiearthquake/src/main/java/edu/uchicago/cindywen/apiearthquake/KafkaEarthquakeRecord.java
+/home/mpcs53013/eclipse-workspace/apiearthquake/src/main/java/edu/uchicago/cindywen/apiearthquake/KafkaEarthquakeWeatherRecord.java
+/home/mpcs53013/eclipse-workspace/apiearthquake/src/main/java/edu/uchicago/cindywen/apiearthquake/LatestEarthquakes.java
