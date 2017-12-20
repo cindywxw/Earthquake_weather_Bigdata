@@ -5,7 +5,7 @@ The earthquake record doesn't come with weather information. It contains coordin
 
 After I got the nearest station of the earthquake spot and caught the weather data on that day, I join the data and got a earthquakeweather table that contains the most of the meaningful information. Then I used derived table to do queries for the batch layer and speed layer. I used xw_earthquakeweather_by_country for batch view and xw_earthquakeweather_by_country_speed for speed layer. And I used apiearthquake to fetch latest earthquake and weather data. Also a xw_earthquakeweather_speed is used to check if there is repeated record based on the unique id for every earthquake to avoid duplicate records.
 
-Url: http://35.194.29.210/cindywen/earthquake-country.html
+Url: http://35.184.157.197/cindywen/earthquake-country.html
 
 Commands used for this project:
 ```shell
@@ -16,7 +16,8 @@ getStations (java program)
 ```shell
 java -cp uber-apiearthquake-0.0.1-SNAPSHOT.jar edu.uchicago.cindywen.apiearthquake.LatestEarthquakes
 add jar hdfs:///pathto/uber-weatheringest-0.0.1-SNAPSHOT.jar;
-```  
+``` 
+in Hive:  
 !run /pathto/hive_earthquake_cluster.hql;  
 !run /pathto/orcweather_cluster.hql;  
 !run /pathto/write_to_hbase2.hql;  
@@ -28,7 +29,7 @@ add jar hdfs:///pathto/uber-weatheringest-0.0.1-SNAPSHOT.jar;
 spark-submit --master local[2] --class StreamData uber-earthquakestream-0.0.1-SNAPSHOT.jar 10.0.0.2:6667
 ```
 
-hbase:
+in hbase:  
 create 'xw_earthquakeweather_hb', 'eq'  
 create 'xw_earthquakeweather_speed', 'eq'  
 create 'xw_earthquakeweather_bk', 'eq'  
