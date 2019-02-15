@@ -1,9 +1,12 @@
+Project for Big Data: Exploring the relationship between earthquake, geographic factor and weather.
 
-Earthquake data from USGS(https://earthquake.usgs.gov/fdsnws/event/1) and weather data from NOAA (ftp://ftp.ncdc.noaa.gov/pub/data/gsod) are used to form the batch layer. Earthquake recodes in the United States takes the largest amount of the dataset. For the "country" property, most places in the U.S are marked with the states directly. For streaming data for speed layer, I used earthquake data from USGS (https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) and weather data from OpenWeatherMap (https://openweathermap.org/api) for latest update. 
+Extracted and streamed data from web APIs, constructed the batch and speed layer on Google Cloud Platform.
 
-The earthquake record doesn't come with weather information. It contains coordinates, and that information can be used to find the nearest WMO station and corresponding weather data can be reached. I split the earthquake data and WMO stations based on latitude and longitude, and compare the distances in the same area. 
+Earthquake data from USGS(https://earthquake.usgs.gov/fdsnws/event/1) and weather data from NOAA (ftp://ftp.ncdc.noaa.gov/pub/data/gsod) are used for the batch layer. Earthquake recodes in the United States takes the largest amount of the dataset. For the "country" property, most places in the U.S are marked with the states directly. For streaming data for speed layer, I used earthquake data from USGS (https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) and weather data from OpenWeatherMap (https://openweathermap.org/api) for latest update. 
 
-After I got the nearest station of the earthquake spot and caught the weather data on that day, I join the data and got a earthquakeweather table that contains the most of the meaningful information. Then I used derived table to do queries for the batch layer and speed layer. I used xw_earthquakeweather_by_country for batch view and xw_earthquakeweather_by_country_speed for speed layer. And I used apiearthquake to fetch latest earthquake and weather data. Also a xw_earthquakeweather_speed is used to check if there is repeated record based on the unique id for every earthquake to avoid duplicate records.
+The earthquake record doesn't come with the weather information. It contains coordinates, and that information can be used to find the nearest WMO station thus corresponding weather data can be reached. I split the earthquake data and WMO stations based on the latitude and longitude, and compare the distances in the same area. 
+
+After the nearest station of the earthquake spot and the weather data on that day are fetched, they are joined for a earthquakeweather table that contains the most of the meaningful information. Then I used derived table to do queries for the batch layer and speed layer. I used xw_earthquakeweather_by_country for the batch view and xw_earthquakeweather_by_country_speed for the speed layer. And I used apiearthquake to fetch latest earthquake and weather data. Also a xw_earthquakeweather_speed is used to check if there is repetitive record based on the unique id for every earthquake to avoid duplicate records.
 
 Url: http://35.184.157.197/cindywen/earthquake-country.html
 
@@ -87,5 +90,5 @@ BZ|30|19.575|4.793|83.433|0.067|0.4|0|0|0.1|0|0.467
 CV|154|10.123|4.761|75.665|0|0.039|0|0|0|0|0.961
 BC|12|13.371|4.75|72.325|0|0.083|0|0|0.083|0|0.917
 
-As for the places that suffer the earthquakes most frequently, other than the places in the U.S. (There are tons of earthquake records regarding the U.S.), Japan, Puerto Rico Chile are the places that suffer a lot of earthquakes every now and then.
+As for the places that suffer the earthquakes most frequently, other than the places in the U.S. (There are tons of earthquake records regarding the U.S.), Japan, Puerto Rico, and Chile are the places that suffer a lot of earthquakes every now and then.
 
